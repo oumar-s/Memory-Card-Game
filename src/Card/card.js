@@ -9,12 +9,12 @@ export default function Card(props){
 
 
     const cardFront = 
-    <div className='front'>
+    <div className='front' onClick={() => setCondition({isFlipped: !condition.isFlipped})}>
         {props.text}
     </div>
 
     const cardBack = 
-    <div className='back'>
+    <div className='back' onClick={() => setCondition({isFlipped: !condition.isFlipped})}>
 
     </div>
     //return
