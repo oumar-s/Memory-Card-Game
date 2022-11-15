@@ -10,7 +10,7 @@ export default function Card(props){
 
     const cardFront = 
     <div className='front' onClick={() => setCondition({isFlipped: !condition.isFlipped})}>
-        {props.text}
+        {props.card.content}
     </div>
 
     const cardBack = 
