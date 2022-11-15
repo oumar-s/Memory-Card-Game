@@ -47,6 +47,9 @@ function App() {
   ]
   return (
     <div className="App">
+      <h1>Memory Game</h1>
+      <button>New Game</button>
+      {cards.map((card,idx)=>(<Card key={card.id} card={card}/>))}
     </div>
   );
 }
