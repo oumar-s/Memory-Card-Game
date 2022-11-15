@@ -4,7 +4,7 @@ import Card from './Card/card';
 function App() {
   return (
     <div className="App">
-      <Card />
+      <Card text="A" />
     </div>
   );
 }
