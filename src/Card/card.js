@@ -1,29 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './card.css'
 
 
-export default function Card(props){
-    //state
-    const [condition, setCondition] = useState({isFlipped: props.card.isFlipped});
-
-    
-    //onClick
-    function handleCardClick(){
-        setCondition({isFlipped: !condition.isFlipped})
+export default class Card extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {isFlipped: props.card.isFlipped};
     }
-
-    const cardFront = 
+    handleCardClick = () => {
+        this.setState({isFlipped: !this.state.isFlipped})
+        this.props.card.isFlipped = this.state;
+        setTimeout(() => {this.props.handleChoice(this.props.card)}, 1000)
+        
+    }
+    
+    cardFront = 
     <div className='front'>
-        {props.card.content}
+        {this.props.card.content}
     </div>
 
-    const cardBack = 
-    <div className='back' onClick={handleCardClick}>
+    cardBack = 
+    <div 
+        className='back' onClick={this.handleCardClick}>
     </div>
-   
-    //return
-    if(condition.isFlipped === false)
-        return cardBack
-    return cardFront
+    render() {
+        if(this.props.card.isFlipped === false)
+            return this.cardBack
+        return this.cardFront
+    }
+  }
+  
 
-}
