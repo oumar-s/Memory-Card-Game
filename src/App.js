@@ -78,11 +78,12 @@ function App() {
     shuffleArray(cardsList);
 
     const newCardsList = cardsList.map(card => {
-        return {...card, id: Math.random()};
+        return {...card, id: Math.random(), isFlipped: false, isMatched: false};
     })
-    setCards(newCardsList);
     choice1 = {card: {}, choice: false};
     choice2 = {card: {}, choice: false};
+    setCards(newCardsList);
+    
     //setChoice1({card: {}, choice: false});
     //setChoice2({card: {}, choice: false});
   }
